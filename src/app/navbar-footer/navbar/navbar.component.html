@@ -1,0 +1,62 @@
+<header style="background-color: #EFEFEF;">
+  <a routerLink="" class="logo"><p>My Music</p></a>
+
+  <ul #navbar class="navbar" id="myTopnav">
+    <li><a routerLink="topTrending">Thịnh hành</a></li>
+    <li><a routerLink="song">Bài hát</a></li>
+    <li><a routerLink="album">Albums</a></li>
+    <li><a routerLink="singer">Ca sĩ</a></li>
+    <li><a routerLink='category'>Thể loại</a></li>
+
+
+    <div class="searchBox">
+      <input routerLink="search" type="text" placeholder="Search" [(ngModel)]="search" (input)="searchSong()">
+      <div class="search">
+              <span class="icon">
+                  <i class="fa-solid fa-magnifying-glass"></i>
+              </span>
+      </div>
+    </div>
+  </ul>
+
+  <div class="main" *ngIf="!checkLogin" >
+    <a routerLink="login" class="user">Đăng nhập</a>
+    <a routerLink="register" style="margin-right: 40px">Đăng ký</a>
+  </div>
+
+  <div class="main" *ngIf="checkLogin">
+   <img src="{{avatar}}" width="45" height="45" style="border-radius: 50%">
+
+    <button style="margin-right: 35px" mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+      <mat-icon>arrow_drop_down</mat-icon>
+    </button>
+    <mat-menu #menu="matMenu">
+
+      <button mat-menu-item style="width: 250px">
+        <a routerLink="#"><img src="{{avatar}}" width="40" height="40" style="border-radius: 50%;margin-bottom: 7px"></a>
+        <a  style="font-size: 1.1rem;margin-left: 5px">{{name}}</a>
+      </button>
+
+      <hr>
+      <button mat-menu-item>
+        <mat-icon>manage_accounts</mat-icon>
+        <a routerLink="change-avatar" style="color: black">Thay đổi ảnh đại diện</a>
+      </button>
+      <button mat-menu-item>
+        <mat-icon>library_music</mat-icon>
+        <a routerLink="playlist" style="color: black">Thư viện</a>
+      </button>
+
+      <hr>
+      <button mat-menu-item>
+        <mat-icon>logout</mat-icon>
+        <a (click)="logOut()" style="font-size: 1.1rem;margin-right: 40px">Đăng xuất</a>
+      </button>
+    </mat-menu>
+
+
+  </div>
+  <i #menuIcon class="bx bx-menu" id="menu-icon" (click)="toggleMenu()">
+  </i>
+</header>
+<hr style=" border: 1px solid white;position: relative;margin: 65px 0; width: 100%;z-index: 99">
