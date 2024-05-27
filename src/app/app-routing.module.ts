@@ -21,16 +21,18 @@ import {TopTrendingComponent} from "./content/song/top-trending/top-trending.com
 import {CheckLoginGuard} from "./service/CheckLoginGuard";
 import {PageAlbumComponent} from "./content/album/page-album/page-album.component";
 import {CreateAlbumComponent} from "./content/album/create-album/create-album.component";
-import {UpdateAlbumComponent} from "./content/album/update-album/update-album.component";
+
 import {DetailAlbumComponent} from "./content/album/detail-album/detail-album.component";
 import {DetailCategoryComponent} from "./content/category/detail-category/detail-category.component";
+import {CheckLogOutGuard} from "./service/CheckLogOutGuard";
+
 
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'register' ,component: RegisterComponent, canActivate:[CheckLoginGuard]},
   {path: 'login' ,component:LoginComponent, canActivate:[CheckLoginGuard]},
-  {path:'change-avatar',component:ChangeAvatarComponent},
+  {path:'change-avatar',component:ChangeAvatarComponent, canActivate: [CheckLogOutGuard]},
 
   {path:'category',component:PageCategoryComponent},
   {path:'create-category',component:CreateCategoryComponent},
@@ -45,7 +47,7 @@ const routes: Routes = [
   {path:'detail-song/:id',component:DetailSongComponent},
   {path:'list-song',component:ListSongComponent},
 
-  {path:'playlist',component:MyplaylistComponent},
+  {path:'playlist',component:MyplaylistComponent, canActivate: [CheckLogOutGuard]},
   {path:'create-playlist',component:CreatePlaylistComponent},
   {path:'detail-playlist/:id',component:DetailPlaylistComponent},
 

@@ -69,6 +69,7 @@ import { DeleteAlbumComponent } from './content/album/delete-album/delete-album.
 import { DialogSuccessComponent } from './dialog/dialog-success/dialog-success.component';
 import { DetailCategoryComponent } from './content/category/detail-category/detail-category.component';
 import {CdkDrag} from "@angular/cdk/drag-drop";
+import { ExpansionTableComponent } from './content/expansion-table/expansion-table.component';
 
 
 
@@ -113,6 +114,7 @@ import {CdkDrag} from "@angular/cdk/drag-drop";
     DeleteAlbumComponent,
     DialogSuccessComponent,
     DetailCategoryComponent,
+    ExpansionTableComponent,
 
   ],
     imports: [
@@ -144,8 +146,8 @@ import {CdkDrag} from "@angular/cdk/drag-drop";
     ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
-    CheckLoginGuard
+    CheckLoginGuard,
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

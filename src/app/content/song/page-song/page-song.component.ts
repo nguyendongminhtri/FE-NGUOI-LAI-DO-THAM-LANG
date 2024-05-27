@@ -40,7 +40,7 @@ export class PageSongComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
 
       if (result||result == undefined){
-        this.getPageRequest({page:0,size:6})
+        this.getPageRequest({page:0,size:3})
       }
     });
   }
@@ -56,7 +56,7 @@ export class PageSongComponent implements OnInit{
   }
 
   ngOnInit(): void {
-    const request = {page:0,size:6}
+    const request = {page:0,size:3}
     this.getPageRequest(request);
 
     if (this.tokenService.getToken()) {
@@ -66,7 +66,7 @@ export class PageSongComponent implements OnInit{
       }
     }
     this.songService.getPageSong(request).subscribe(data =>{
-      this.getPageRequest({page: 0, size: 6})
+      this.getPageRequest({page: 0, size: 3})
     })
   }
 
@@ -75,7 +75,7 @@ export class PageSongComponent implements OnInit{
     dialogRef.afterClosed().subscribe(result => {
       if (result){
         this.songService.deleteSong(id).subscribe(data =>{
-          this.getPageRequest({page:0,size:6});
+          this.getPageRequest({page:0,size:3});
         })
       }
     })
@@ -89,7 +89,7 @@ export class PageSongComponent implements OnInit{
     })
     dialogRef.afterClosed().subscribe(result => {
       if (result || result == undefined){
-        this.getPageRequest({page:0,size:6})
+        this.getPageRequest({page:0,size:3})
       }
     })
   }
